@@ -50,9 +50,18 @@ export class LoginPage implements OnInit {
 
   async register() {
     await this.presentLoading();
-
     try {
       await this.authService.register(this.userRegister);
+    } catch (error) {
+      this.presentToast(error.message);
+    } finally {
+      this.loading.dismiss();
+    }
+  }
+
+  async googleLogin(){
+    try {
+      await this.authService.google();
     } catch (error) {
       this.presentToast(error.message);
     } finally {
