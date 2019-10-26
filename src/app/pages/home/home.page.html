@@ -36,7 +36,6 @@
           <p>{{ product.description }}</p>
           <p>{{ product.createdAt | date: 'short' }}</p>
         </ion-label>
-
         <ion-note color="primary" slot="end" *ngIf="product.price">{{ product.price | currency: 'COP' }}</ion-note>
       </ion-item>
 
