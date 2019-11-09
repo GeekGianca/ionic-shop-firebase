@@ -1,6 +1,6 @@
 <ion-content class="swiper-no-swiping">
   <div class="container top" [hidden]="keyboard.isVisible">
-    <img src="/assets/img/logo.png">
+      <img src="/assets/img/logo.png" style="display: block; margin: auto;">
 
     <ion-segment (ionChange)="segmentChanged($event)" mode="ios" value="login">
       <ion-segment-button mode="ios" value="login">
@@ -12,7 +12,7 @@
     </ion-segment>
   </div>
 
-  <ion-slides>
+  <ion-slides style="margin-top: 70px;">
     <ion-slide>
       <div class="slide-inner ion-padding">
         <span>Acceder</span>
@@ -27,6 +27,9 @@
 
         <ion-button class="ion-margin-top" (click)="login()" color="light" expand="block">
           Entrar
+        </ion-button>
+        <ion-button class="ion-margin-top" (click)="facebookLogin()" color="default" expand="block">
+          Acceder con Facebook
         </ion-button>
         <ion-button class="ion-margin-top" (click)="googleLogin()" color="danger" expand="block">
           Acceder con Google

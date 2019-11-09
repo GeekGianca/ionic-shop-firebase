@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="cards-bg social-cards">
+  <ion-list *ngIf="!products.length">
+    <ion-item *ngFor="let item of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item-sliding *ngFor="let product of products">
+      <ion-card button [routerLink]="['/info', product.id]">
+        <img [src]="product.picture" />
+        <ion-card-content>
+          <ion-card-title>
+            <p style="font-weight: bold;">{{ product.name }}</p>
+          </ion-card-title>
+          <p>
+            {{ product.descriptionShort }}
+          </p>
+        </ion-card-content>
+        <ion-row>
+          <ion-col style="margin-left: 12px; margin-bottom: 15px;" class="align-self-center text-start">
+              <ion-note color="dark" *ngIf="product.quantity > 0">{{ product.quantity}} Disponible</ion-note>
+              <ion-note color="danger" *ngIf="product.quantity == 0">No disponible</ion-note>
+          </ion-col>
+          <ion-col class="align-self-center text-end" style="margin-bottom: 15px; margin-right: 12px;">
+            <ion-note color="primary" *ngIf="product.price"> {{ product.price | currency: 'COP $' }}</ion-note>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

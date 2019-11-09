@@ -59,6 +59,16 @@ export class LoginPage implements OnInit {
     }
   }
 
+  async facebookLogin(){
+    try {
+      await this.authService.facebookLogin();
+    } catch (error) {
+      this.presentToast(error.message);
+    } finally {
+      this.loading.dismiss();
+    }
+  }
+
   async googleLogin(){
     try {
       await this.authService.google();

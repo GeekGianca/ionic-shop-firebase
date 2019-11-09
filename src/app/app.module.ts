@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { IonicStorageModule } from '@ionic/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 
@@ -20,6 +21,7 @@ import { Keyboard } from '@ionic-native/keyboard/ngx';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAVESVPhSi5sAebbeeuiB12d8EWRZyCoHk",
-    authDomain: "surf-shop-a2cb7.firebaseapp.com",
-    databaseURL: "https://surf-shop-a2cb7.firebaseio.com",
-    projectId: "surf-shop-a2cb7",
-    storageBucket: "",
-    messagingSenderId: "256417007517",
-    appId: "1:256417007517:web:bb689dd854f24494ee9174",
-    measurementId: "G-0CPGW35BYG"
+    apiKey: "AIzaSyAWoguBp8JLD8KE93f8sZo-R_hoQETNvv4",
+    authDomain: "surf-tienda.firebaseapp.com",
+    databaseURL: "https://surf-tienda.firebaseio.com",
+    projectId: "surf-tienda",
+    storageBucket: "surf-tienda.appspot.com",
+    messagingSenderId: "672967003127",
+    appId: "1:672967003127:web:d34e9aaf314bb15f1b3cf2",
+    measurementId: "G-JV9449B1VE"
   }
 };
 

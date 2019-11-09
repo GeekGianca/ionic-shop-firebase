@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle del producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img [src]="product.picture" />
+    <ion-card-header>
+      <ion-card-subtitle>Producto:</ion-card-subtitle>
+      <ion-card-title style="font-weight: bold;">{{ product.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content maxLenght="20">
+      {{ product.description }}
+    </ion-card-content>
+    <ion-item *ngIf="product.quantity > 0">
+      <ion-button shape="round" fill="outline" color="warning" (click)="addOrRemoveFavorite()">
+        <ion-icon *ngIf="favorite == null || favorite == undefined" color="warning" slot="icon-only" name="star-outline"></ion-icon>
+        <ion-icon *ngIf="favorite != null" color="warning" slot="icon-only" name="star"></ion-icon>
+      </ion-button>
+      <ion-item slot="end">
+        <ion-button fill="outline" (click)="remove()">
+          <ion-icon name="remove"></ion-icon>
+        </ion-button>
+        <ion-label style="height: h">{{ cartTotal }}</ion-label>
+        <ion-button fill="outline" (click)="more()">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="cube"></ion-icon>
+      <ion-label *ngIf="product.quantity > 0"> Cantidad disponible: {{ product.quantity }}</ion-label>
+      <ion-label color="danger" *ngIf="product.quantity == 0"> Sin stock</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="pricetag"></ion-icon>
+      <ion-label> Valor unitario: {{ product.price | currency: '$' }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="cash"></ion-icon>
+      <ion-label> Total compra: {{ totalPrice | currency: '$' }}</ion-label>
+    </ion-item>
+  </ion-card>
+  <ion-fab *ngIf="product.quantity > 0" (click)="addCart()" vertical="bottom" style="bottom: 10px;" horizontal="end" edge slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Surf Shop</ion-title>
+    <ion-title>Administrador</ion-title>
+    <ion-buttons slot="end">
+        <ion-button color="primary" routerLink="/shop">
+          <ion-icon slot="icon-only" name="cart"></ion-icon>
+        </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -30,13 +35,12 @@
         <ion-avatar slot="start">
           <img [src]="product.picture">
         </ion-avatar>
-
         <ion-label>
           {{ product.name }}
           <p>{{ product.description }}</p>
           <p>{{ product.createdAt | date: 'short' }}</p>
         </ion-label>
-        <ion-note color="primary" slot="end" *ngIf="product.price">{{ product.price | currency: 'COP' }}</ion-note>
+        <ion-note color="primary" slot="end" *ngIf="product.price">{{ product.price | currency: 'COP $' }}</ion-note>
       </ion-item>
 
       <ion-item-options side="end">

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let fav of favorites">
+    <ion-list-header>
+      Listado de favoritos
+    </ion-list-header>
+    <ion-item>
+        <ion-avatar slot="start">
+          <img [src]="fav.picture">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ fav.id }}</h2>
+          <h3>{{ fav.name }}</h3>
+          <p>{{ fav.description }}</p>
+        </ion-label>
+        <ion-icon (click)="remover(fav.id)" color="warning" name="heart" slot="end"></ion-icon>
+      </ion-item>
+  </ion-list>
+</ion-content>

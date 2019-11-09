@@ -3,8 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-
-    <ion-title>Produto</ion-title>
+    <ion-title>Producto</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,10 +16,16 @@
       <ion-input type="text" [(ngModel)]="product.description" placeholder="Descripción"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-input maxlength="160" type="text" [(ngModel)]="product.descriptionShort" placeholder="Descripción corta"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-input type="text" [(ngModel)]="product.picture" placeholder="Foto"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input type="text" [(ngModel)]="product.price" placeholder="Precio"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" [(ngModel)]="product.quantity" placeholder="Cantidad disponible"></ion-input>
     </ion-item>
   </ion-list>
 </ion-content>
