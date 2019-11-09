@@ -8,10 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngFor="let fav of favorites">
-    <ion-list-header>
+  <ion-label>
       Listado de favoritos
-    </ion-list-header>
+  </ion-label>
+  <ion-list *ngFor="let fav of favoritesUsr">
     <ion-item>
         <ion-avatar slot="start">
           <img [src]="fav.picture">

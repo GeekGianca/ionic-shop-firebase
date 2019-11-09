@@ -46,6 +46,8 @@ export class CartPage implements OnInit {
   }
 
   ionViewWillEnter() {
+    this.totalShoping = 0;
+    this.products = new Array<string>();
     this.loadShopingCart();
   }
 

@@ -22,7 +22,7 @@ export class HistoryPage implements OnInit {
     this.recordSubscription = this.recordService.getRecords().subscribe(data => {
       this.allrecords = data;
       this.allrecords.forEach(val => {
-        if (val.userId = this.authService.getAuth().currentUser.uid) {
+        if (val.userId == this.authService.getAuth().currentUser.uid) {
           this.userrecords.push(val);
         }
       });
@@ -32,4 +32,7 @@ export class HistoryPage implements OnInit {
   ngOnInit() {
   }
 
+  ngOnDestroy(){
+    this.recordSubscription.unsubscribe();
+  }
 }

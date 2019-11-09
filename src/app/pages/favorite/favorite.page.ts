@@ -14,6 +14,7 @@ export class FavoritePage implements OnInit {
 
   private loading: any;
   public favorites = new Array<Favorite>();
+  public favoritesUsr = new Array<Favorite>();
   private favoritSubscription: Subscription;
 
   constructor(
@@ -23,6 +24,11 @@ export class FavoritePage implements OnInit {
     private toastCtrl: ToastController) {
     this.favoritSubscription = this.favoriteService.getFavorites().subscribe(data => {
       this.favorites = data;
+      this.favorites.forEach(fav => {
+        if(fav.userId == this.authService.getAuth().currentUser.uid){
+          this.favoritesUsr.push(fav);
+        }
+      });
     });
   }
 
